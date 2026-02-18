@@ -50,7 +50,6 @@ def home():
     price = None
 
     if request.method == "POST":
-
         bedrooms = float(request.form["bedrooms"])
         bathrooms = float(request.form["bathrooms"])
         living_area = float(request.form["living_area"])
@@ -65,7 +64,6 @@ def home():
                                   floors, grade, built_year]])
 
             prediction = advanced_model.predict(features)
-
             model_used = "Advanced"
 
         else:
@@ -77,7 +75,6 @@ def home():
 
         price = round(prediction[0], 2)
 
-        # SAVE TO DATABASE
         conn = sqlite3.connect("predictions.db")
         cursor = conn.cursor()
 
@@ -109,5 +106,9 @@ def history():
 
     return render_template("history.html", rows=rows)
 
-    if __name__ == "__main__":
-        app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+
+# =========================
+# RUN APP LOCALLY
+# =========================
+if __name__ == "__main__":
+    app.run(debug=True)

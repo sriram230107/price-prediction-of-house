@@ -6,35 +6,57 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 40px;
             background-color: #f4f4f4;
         }
-        h1 {
-            margin-bottom: 40px;
-        }
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
+            padding: 10px 20px;
             margin: 10px;
-            font-size: 18px;
-            text-decoration: none;
+            font-size: 16px;
             color: white;
             background-color: #007BFF;
-            border-radius: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
         }
         .btn:hover {
             background-color: #0056b3;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
 
-<h1>🏠 House Price Prediction App</h1>
+<h1>🏠 House Price Prediction</h1>
 
-<div>
-    <a href="/" class="btn">🏠 Predict</a>
-    <a href="/history" class="btn">📜 History</a>
-</div>
+<a href="/" class="btn">Predict</a>
+<a href="/history" class="btn">History</a>
+
+<hr>
+
+<form method="POST">
+    <input type="number" step="any" name="bedrooms" placeholder="Bedrooms" required><br>
+    <input type="number" step="any" name="bathrooms" placeholder="Bathrooms" required><br>
+    <input type="number" step="any" name="living_area" placeholder="Living Area" required><br>
+
+    <label>
+        <input type="checkbox" name="use_advanced">
+        Use Advanced Model
+    </label><br>
+
+    <input type="number" step="any" name="floors" placeholder="Floors"><br>
+    <input type="number" step="any" name="grade" placeholder="Grade"><br>
+    <input type="number" step="any" name="built_year" placeholder="Built Year"><br>
+
+    <button type="submit" class="btn">Predict Price</button>
+</form>
+
+{% if price %}
+    <h2>Predicted Price: ${{ price }}</h2>
+{% endif %}
 
 </body>
 </html>
