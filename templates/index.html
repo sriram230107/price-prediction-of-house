@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: blue;
+        }
+        .advanced-box {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🏠 House Price Predictor</h1>
+
+<form method="POST">
+
+    <h3>Basic Search</h3>
+    <input type="number" step="any" name="bedrooms" placeholder="Bedrooms" required><br>
+    <input type="number" step="any" name="bathrooms" placeholder="Bathrooms" required><br>
+    <input type="number" step="any" name="living_area" placeholder="Living Area (sq ft)" required><br>
+
+    <br>
+
+    <label>
+        <input type="checkbox" id="advancedCheck" name="use_advanced">
+        Use Advanced Search
+    </label>
+
+    <div id="advancedFields" class="advanced-box" style="display:none;">
+        <h3>Advanced Options</h3>
+
+        <input type="number" step="any" name="floors" placeholder="Number of Floors"><br>
+        <input type="number" step="any" name="grade" placeholder="Grade of House"><br>
+        <input type="number" step="any" name="built_year" placeholder="Built Year"><br>
+    </div>
+
+    <br>
+    <button type="submit">Predict Price</button>
+</form>
+
+{% if price %}
+<div class="result">
+    💰 Estimated Price: ₹ {{ price }}
+</div>
+{% endif %}
+
+<script>
+const checkbox = document.getElementById("advancedCheck");
+const advancedFields = document.getElementById("advancedFields");
+
+checkbox.addEventListener("change", function() {
+    if (this.checked) {
+        advancedFields.style.display = "block";
+    } else {
+        advancedFields.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 90%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #ddd;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>📊 Prediction History</h1>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Bedrooms</th>
+    <th>Bathrooms</th>
+    <th>Living Area</th>
+    <th>Floors</th>
+    <th>Grade</th>
+    <th>Built Year</th>
+    <th>Price</th>
+    <th>Model</th>
+    <th>Time</th>
+</tr>
+
+{% for row in rows %}
+<tr>
+    <td>{{ row['id'] }}</td>
+    <td>{{ row['bedrooms'] }}</td>
+    <td>{{ row['bathrooms'] }}</td>
+    <td>{{ row['living_area'] }}</td>
+    <td>{{ row['floors'] }}</td>
+    <td>{{ row['grade'] }}</td>
+    <td>{{ row['built_year'] }}</td>
+    <td>₹ {{ row['price'] }}</td>
+    <td>{{ row['model'] }}</td>
+    <td>{{ row['time'] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+
+<a href="/">⬅ Back to Home</a>
+
+</body>
+</html>
+
+ <!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+</head>
+<body>
+
+<h1>THIS IS THE CORRECT FILE</h1>
+    
+
+
+</body>
+</html> -->
