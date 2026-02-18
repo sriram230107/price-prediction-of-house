@@ -1,83 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>House Price Predictor</title>
+    <title>House Price Prediction</title>
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
+            margin-top: 80px;
+            background-color: #f4f4f4;
         }
-        input {
-            padding: 8px;
-            margin: 5px;
-            width: 200px;
+        h1 {
+            margin-bottom: 40px;
         }
-        button {
-            padding: 10px 20px;
-            background-color: green;
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            text-decoration: none;
             color: white;
-            border: none;
-            cursor: pointer;
+            background-color: #007BFF;
+            border-radius: 8px;
         }
-        .result {
-            margin-top: 20px;
-            font-size: 20px;
-            color: blue;
-        }
-        .advanced-box {
-            margin-top: 20px;
+        .btn:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
 
-<h1>🏠 House Price Predictor</h1>
+<h1>🏠 House Price Prediction App</h1>
 
-<form method="POST">
-
-    <h3>Basic Search</h3>
-    <input type="number" step="any" name="bedrooms" placeholder="Bedrooms" required><br>
-    <input type="number" step="any" name="bathrooms" placeholder="Bathrooms" required><br>
-    <input type="number" step="any" name="living_area" placeholder="Living Area (sq ft)" required><br>
-
-    <br>
-
-    <label>
-        <input type="checkbox" id="advancedCheck" name="use_advanced">
-        Use Advanced Search
-    </label>
-
-    <div id="advancedFields" class="advanced-box" style="display:none;">
-        <h3>Advanced Options</h3>
-
-        <input type="number" step="any" name="floors" placeholder="Number of Floors"><br>
-        <input type="number" step="any" name="grade" placeholder="Grade of House"><br>
-        <input type="number" step="any" name="built_year" placeholder="Built Year"><br>
-    </div>
-
-    <br>
-    <button type="submit">Predict Price</button>
-</form>
-
-{% if price %}
-<div class="result">
-    💰 Estimated Price: ₹ {{ price }}
+<div>
+    <a href="/" class="btn">🏠 Predict</a>
+    <a href="/history" class="btn">📜 History</a>
 </div>
-{% endif %}
-
-<script>
-const checkbox = document.getElementById("advancedCheck");
-const advancedFields = document.getElementById("advancedFields");
-
-checkbox.addEventListener("change", function() {
-    if (this.checked) {
-        advancedFields.style.display = "block";
-    } else {
-        advancedFields.style.display = "none";
-    }
-});
-</script>
 
 </body>
 </html>
